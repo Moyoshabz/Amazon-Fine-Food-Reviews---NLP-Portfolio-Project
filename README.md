@@ -31,7 +31,7 @@ This project applies Natural Language Processing (NLP) techniques to extract ins
 | Data Loading       | pandas                                     |
 | Text Preprocessing | nltk                                       |
 | Visualization      | matplotlib, seaborn, wordcloud             |
-| Sentiment Analysis | textblob or vader (coming soon)            |
+| Sentiment Analysis | textblob.                                  |
 | Classification     | scikit-learn (optional for future section) |
 
 ---

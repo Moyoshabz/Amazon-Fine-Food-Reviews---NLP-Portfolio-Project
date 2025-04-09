@@ -1,6 +1,6 @@
 # Amazon Fine Food Reviews
 
-This project applies Natural Language Processing (NLP) techniques to extract insights from food product reviews posted on Amazon. It's built using Python, Pandas, NLTK/SpaCy, and Matplotlib, and is designed as a showcase portfolio project.
+This project applies Natural Language Processing (NLP) techniques to extract insights from food product reviews posted on Amazon. It's built using Python, Pandas, NLTK, and Matplotlib, and is designed as a showcase portfolio project.
 
 ---
 
@@ -45,6 +45,7 @@ df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text',
          'HelpfulnessNumerator', 'HelpfulnessDenominator']]
 
 df['Text'] = df['Text'].str.lower()
+
 df['Summary'] = df['Summary'].str.lower()
 
 Also we coverted the current UNIX timestamp in our dataset to datetime
@@ -55,8 +56,11 @@ df['ReviewTime'] = pd.to_datetime(df['Time'], unit='s')
 Additionally, we created new features that could help in understanding the reviews and their characteristics
 
 df['review_length'] = df['Text'].apply(lambda x: len(str(x).split()))
+
 df['summary_length'] = df['Summary'].apply(lambda x: len(str(x).split()))
+
 df['helpfulness_ratio'] = df['HelpfulnessNumerator'] / df['HelpfulnessDenominator'].replace(0, 1)
+
 df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))
 
 ---
@@ -65,12 +69,16 @@ df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negativ
 We tokenized the review text using NLTK and cleaned the tokens by removing stopwords.
 
 import nltk
+
 nltk.download('punkt_tab')
+
 df['tokens'] = df['Text'].apply(word_tokenize)
 
 
 from nltk.corpus import stopwords
+
 nltk.download('stopwords')
+
 stop_words = set(stopwords.words('english'))
 
 df['tokens_clean'] = df['tokens'].apply(lambda x: [word for word in x if word.lower() not in stop_words])
@@ -80,8 +88,11 @@ df[['tokens', 'tokens_clean']].head()
 After the tokenization had been implemented, we visulized the most frequent words in our review and noticed that symbols are chraters such as 'I', 'br' were prevalent. we took them out using the following code .
 
 import string
+
 punctuation = set(string.punctuation)
+
 df['tokens_clean'] = df['tokens'].apply(lambda x: [word for word in x if word.isalpha() and word not in stop_words])
+
 df[['tokens', 'tokens_clean']].head()
 
 --- 
@@ -101,9 +112,13 @@ In this step, we created various visualizations to explore the dataset and uncov
 1. Sentiment Distribution Based on Score : We visualized how the sentiment distribution varies across different review scores. This helps us understand if higher scores correlate with more positive sentiments or if negative sentiments can still appear in high-rated reviews
 
 import seaborn as sns
+
 import matplotlib.pyplot as plt
+
 sns.countplot(data=df, x='sentiment', order=['positive', 'neutral', 'negative'])
+
 plt.title("Sentiment Distribution Based on Score")
+
 plt.show()
 
 

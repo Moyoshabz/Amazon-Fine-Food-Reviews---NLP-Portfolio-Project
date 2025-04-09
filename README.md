@@ -1,5 +1,7 @@
 # Amazon Fine Food Reviews
 
+![iamge_1](./project-images/image5.png)
+
 This project applies Natural Language Processing (NLP) techniques to extract insights from food product reviews posted on Amazon. It's built using Python, Pandas, NLTK, and Matplotlib, and is designed as a showcase portfolio project.
 
 ---

@@ -86,7 +86,7 @@ We tokenized the review text using NLTK and cleaned the tokens by removing stopw
 
 `df[['tokens', 'tokens_clean']].head()`
 
-After the tokenization had been implemented, we visulized the most frequent words in our review and noticed that symbols are chraters such as 'I', 'br' were prevalent. we took them out using the following code .
+After the tokenization had been implemented, we visualized the most frequent words in our review and noticed that symbols and characters such as 'I', 'br' were prevalent. we took them out using the following code .
 
 `import string`
 

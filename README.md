@@ -55,13 +55,13 @@ Also we coverted the current UNIX timestamp in our dataset to datetime
 ### Creating Additional Features:
 Additionally, we created new features that could help in understanding the reviews and their characteristics
 
-`df['review_length'] = df['Text'].apply(lambda x: len(str(x).split()))
+`df['review_length'] = df['Text'].apply(lambda x: len(str(x).split()))`
 
-df['summary_length'] = df['Summary'].apply(lambda x: len(str(x).split()))
+`df['summary_length'] = df['Summary'].apply(lambda x: len(str(x).split()))`
 
-df['helpfulness_ratio'] = df['HelpfulnessNumerator'] / df['HelpfulnessDenominator'].replace(0, 1)
+`df['helpfulness_ratio'] = df['HelpfulnessNumerator'] / df['HelpfulnessDenominator'].replace(0, 1)`
 
-df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))`
+`df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))`
 
 ---
 

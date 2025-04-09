@@ -39,6 +39,8 @@ This project applies Natural Language Processing (NLP) techniques to extract ins
 In this step, we cleaned the dataset by removing null values, converting text to lowercase, and removing irrelevant columns like `ProductId` and `ProfileName`.
 
 ### Data Cleaning Code:
+|--------------------|--------------------------------------------|
 | df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text', 
-         'HelpfulnessNumerator', 'HelpfulnessDenominator']]         |
+         'HelpfulnessNumerator', 'HelpfulnessDenominator']]       |
+|--------------------|--------------------------------------------|
 

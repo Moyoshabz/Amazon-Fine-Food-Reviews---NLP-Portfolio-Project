@@ -28,13 +28,17 @@ This project applies Natural Language Processing (NLP) techniques to extract ins
 | Task               | Tools & Libraries Used                     |
 |--------------------|--------------------------------------------|
 | Data Loading       | pandas                                     |
-| Text Preprocessing | nltk, spacy                                |
+| Text Preprocessing | nltk                                       |
 | Visualization      | matplotlib, seaborn, wordcloud             |
 | Sentiment Analysis | textblob or vader (coming soon)            |
 | Classification     | scikit-learn (optional for future section) |
 
 ---
 
-## 📸 Sample Visualization
+## Step 1: Data Preprocessing
+In this step, we cleaned the dataset by removing null values, converting text to lowercase, and removing irrelevant columns like `ProductId` and `ProfileName`.
 
-![WordCloud](images/wordcloud.png)
+### Data Cleaning Code:
+| df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text', 
+         'HelpfulnessNumerator', 'HelpfulnessDenominator']]         |
+

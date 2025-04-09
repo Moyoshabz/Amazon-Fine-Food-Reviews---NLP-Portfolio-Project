@@ -120,6 +120,9 @@ In this step, we created various visualizations to explore the dataset and uncov
 
 `plt.show()`
 
+![iamge_1](./project-images/image1.png)
+
+
 #### Insight
 Based on the visualization, we can observe that most reviews with scores above 3 tend to be positive, while reviews with scores below 3 are largely negative. Neutral reviews are scattered around a score of 3, as expected.
 
@@ -131,6 +134,8 @@ Based on the visualization, we can observe that most reviews with scores above 3
 `plt.title("Distribution of Review Lengths")`
 
 `plt.show()`
+
+![iamge_1](./project-images/image2.png)
 
 #### Insight
 The analysis shows that shorter reviews have a higher count, which suggests that users tend to write shorter reviews more frequently. However, as the review length increases, the number of reviews decreases.
@@ -145,6 +150,8 @@ The analysis shows that shorter reviews have a higher count, which suggests that
 `plt.ylim(0, 1)`
 
 `plt.show()`
+
+![iamge_1](./project-images/image3.png)
 
 #### Insight
 Positive reviews tend to have a higher helpfulness ratio compared to negative reviews. This indicates that users often find positive reviews more useful.
@@ -161,6 +168,8 @@ plt.xlabel("Year")
 `plt.ylabel("Number of Reviews")`
 
 `plt.show()`
+
+![iamge_1](./project-images/image4.png)
 
 #### Insight
 There seems to be a consistent increase in the number of reviews over time, with a noticeable spike around certain periods. This could correspond to product launches, promotions, or other marketing activities.
@@ -184,7 +193,6 @@ There seems to be a consistent increase in the number of reviews over time, with
 
 `plt.title("Word Cloud for Full Review Text")`
 
-
 `plt.subplot(1, 2, 2)`
 
 `plt.imshow(WordCloud(max_words=100, background_color='white').generate(summary_words))`
@@ -194,6 +202,8 @@ There seems to be a consistent increase in the number of reviews over time, with
 `plt.title("Word Cloud for Summary")`
 
 `plt.show()`
+
+![iamge_1](./project-images/image5.png)
 
 #### Insight
 The word clouds show that words like “good,” “love,”, “best”, “delicious” are common in positive reviews, while “bad” and “problem”, “epensive” appear frequently in negative reviews. The summaries often focus on key product features.
@@ -223,6 +233,8 @@ We visualized the 20 most frequent words in the reviews, excluding stopwords and
 `plt.title("Top 20 Most Frequent Words in Reviews")`
 
 `plt.show()`
+
+![iamge_1](./project-images/image6.png)
 
 #### Insight
 The most frequent words tend to align with product attributes and customer satisfaction. Words related to quality, price, and performance dominate the most frequent list, which is useful for understanding what customers focus on when writing reviews.

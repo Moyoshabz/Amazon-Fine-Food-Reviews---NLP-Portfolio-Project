@@ -14,7 +14,7 @@ Amazon Fine Food Reviews - NLP Portfolio Project
 
 ---
 
-### Project Goals:
+## Project Goals:
 
 ### Clean and preprocess review text
 

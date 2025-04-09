@@ -44,31 +44,31 @@ df.dropna(inplace=True)
 `df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text', 
          'HelpfulnessNumerator', 'HelpfulnessDenominator']]`
 
-```df['Text'] = df['Text'].str.lower()
+`df['Text'] = df['Text'].str.lower()
 
-df['Summary'] = df['Summary'].str.lower()
+df['Summary'] = df['Summary'].str.lower()`
 
 Also we coverted the current UNIX timestamp in our dataset to datetime
 
-df['ReviewTime'] = pd.to_datetime(df['Time'], unit='s')
+`df['ReviewTime'] = pd.to_datetime(df['Time'], unit='s')`
 
 ### Creating Additional Features:
 Additionally, we created new features that could help in understanding the reviews and their characteristics
 
-```df['review_length'] = df['Text'].apply(lambda x: len(str(x).split()))
+`df['review_length'] = df['Text'].apply(lambda x: len(str(x).split()))
 
 df['summary_length'] = df['Summary'].apply(lambda x: len(str(x).split()))
 
 df['helpfulness_ratio'] = df['HelpfulnessNumerator'] / df['HelpfulnessDenominator'].replace(0, 1)
 
-df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))
+df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))`
 
 ---
 
 ## Step 2: Tokenization
 We tokenized the review text using NLTK and cleaned the tokens by removing stopwords.
 
-```import nltk
+`import nltk
 
 nltk.download('punkt_tab')
 
@@ -83,26 +83,26 @@ stop_words = set(stopwords.words('english'))
 
 df['tokens_clean'] = df['tokens'].apply(lambda x: [word for word in x if word.lower() not in stop_words])
 
-df[['tokens', 'tokens_clean']].head()
+df[['tokens', 'tokens_clean']].head()`
 
 After the tokenization had been implemented, we visulized the most frequent words in our review and noticed that symbols are chraters such as 'I', 'br' were prevalent. we took them out using the following code .
 
-```import string
+`import string
 
 punctuation = set(string.punctuation)
 
 df['tokens_clean'] = df['tokens'].apply(lambda x: [word for word in x if word.isalpha() and word not in stop_words])
 
-df[['tokens', 'tokens_clean']].head()
+df[['tokens', 'tokens_clean']].head()`
 
 --- 
 
 ## Step 3: Tokenization
 We classified each review as positive, negative, or neutral based on the review score using a simple rule-based approach.
 
-```df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))
+`df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))
 
-df['sentiment']
+df['sentiment']`
 
 ---
 
@@ -111,7 +111,7 @@ In this step, we created various visualizations to explore the dataset and uncov
 
 1. Sentiment Distribution Based on Score : We visualized how the sentiment distribution varies across different review scores. This helps us understand if higher scores correlate with more positive sentiments or if negative sentiments can still appear in high-rated reviews
 
-```import seaborn as sns
+`import seaborn as sns
 
 import matplotlib.pyplot as plt
 
@@ -119,18 +119,18 @@ sns.countplot(data=df, x='sentiment', order=['positive', 'neutral', 'negative'])
 
 plt.title("Sentiment Distribution Based on Score")
 
-plt.show()
+plt.show()`
 
 #### Insight
 Based on the visualization, we can observe that most reviews with scores above 3 tend to be positive, while reviews with scores below 3 are largely negative. Neutral reviews are scattered around a score of 3, as expected.
 
 2. Distribution of Review Lengths: We plotted the distribution of review lengths to explore if there’s any correlation between the length of the review and its sentiment or helpfulness.
 
-```sns.histplot(df['review_length'], bins=50)
+`sns.histplot(df['review_length'], bins=50)
 
 plt.title("Distribution of Review Lengths")
 
-plt.show()
+plt.show()`
 
 #### Insight
 The analysis shows that shorter reviews have a higher count, which suggests that users tend to write shorter reviews more frequently. However, as the review length increases, the number of reviews decreases.
@@ -138,13 +138,13 @@ The analysis shows that shorter reviews have a higher count, which suggests that
 
 3. Helpfulness Ratio by Sentiment: This visualization highlights the helpfulness ratio for each sentiment category. We wanted to explore if helpful reviews are more likely to come from certain sentiment categories.
 
-```sns.boxplot(data=df, x='sentiment', y='helpfulness_ratio')
+`sns.boxplot(data=df, x='sentiment', y='helpfulness_ratio')
 
 plt.title("Helpfulness Ratio by Sentiment")
 
 plt.ylim(0, 1)
 
-plt.show()
+plt.show()`
 
 #### Insight
 Positive reviews tend to have a higher helpfulness ratio compared to negative reviews. This indicates that users often find positive reviews more useful.
@@ -153,7 +153,7 @@ Positive reviews tend to have a higher helpfulness ratio compared to negative re
 
 4. Time Series: Reviews Over Time: We created a time series plot to understand how the number of reviews changed over time. This can be useful for identifying trends, such as seasonal spikes or any unusual activity in review submissions.
 
-```df['ReviewTime'].dt.year.value_counts().sort_index().plot(kind='bar')
+`df['ReviewTime'].dt.year.value_counts().sort_index().plot(kind='bar')
 
 plt.title("Number of Reviews Per Year")
 
@@ -161,7 +161,7 @@ plt.xlabel("Year")
 
 plt.ylabel("Number of Reviews")
 
-plt.show()
+plt.show()`
 
 #### Insight
 There seems to be a consistent increase in the number of reviews over time, with a noticeable spike around certain periods. This could correspond to product launches, promotions, or other marketing activities.
@@ -169,7 +169,7 @@ There seems to be a consistent increase in the number of reviews over time, with
 
 5. Word Cloud for Full Review Text and Summary: We generated word clouds to visualize the most common words in the full review text and the summaries. This helps identify the key terms frequently mentioned by users.
 
-```from wordcloud import WordCloud
+`from wordcloud import WordCloud
 
 text_words = " ".join(df['Text'].dropna().astype(str).tolist())
 
@@ -195,7 +195,7 @@ plt.axis('off')
 plt.title("Word Cloud for Summary")
 
 
-plt.show()
+plt.show()`
 
 #### Insight
 The word clouds show that words like “good,” “love,”, “best”, “delicious” are common in positive reviews, while “bad” and “problem”, “epensive” appear frequently in negative reviews. The summaries often focus on key product features.
@@ -203,7 +203,7 @@ The word clouds show that words like “good,” “love,”, “best”, “del
 6. Top 20 Most Frequent Words in Reviews
 We visualized the 20 most frequent words in the reviews, excluding stopwords and common punctuation. This highlights the most important keywords associated with customer experiences.
 
-```from collections import Counter
+`from collections import Counter
 
 import matplotlib.pyplot as plt
 
@@ -227,7 +227,7 @@ plt.xticks(rotation=45)
 
 plt.title("Top 20 Most Frequent Words in Reviews")
 
-plt.show()
+plt.show()`
 
 #### Insight
 The most frequent words tend to align with product attributes and customer satisfaction. Words related to quality, price, and performance dominate the most frequent list, which is useful for understanding what customers focus on when writing reviews.

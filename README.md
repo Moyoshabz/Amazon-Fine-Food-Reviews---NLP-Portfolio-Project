@@ -41,8 +41,8 @@ In this step, we cleaned the dataset by removing null values, converting text to
 ### Data Cleaning Code:
 df.dropna(inplace=True)
 
-df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text', 
-         'HelpfulnessNumerator', 'HelpfulnessDenominator']]
+`df = df[['ProductId', 'UserId', 'Score', 'Time', 'Summary', 'Text', 
+         'HelpfulnessNumerator', 'HelpfulnessDenominator']]`
 
 df['Text'] = df['Text'].str.lower()
 

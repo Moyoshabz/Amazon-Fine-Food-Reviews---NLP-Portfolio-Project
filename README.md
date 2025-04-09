@@ -10,8 +10,7 @@ This project applies Natural Language Processing (NLP) techniques to extract ins
 - Tokenize text data for further analysis
 - Perform exploratory data analysis (EDA)
 - Visualize word frequencies with WordCloud
-- Conduct sentiment analysis (coming soon!)
-- Apply machine learning models for sentiment classification (optional)
+- Conduct sentiment analysis
 - Share business insights and recommendations
 
 **Source**: [Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)  

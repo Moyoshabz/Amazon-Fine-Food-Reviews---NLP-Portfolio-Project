@@ -24,7 +24,7 @@ This project applies Natural Language Processing (NLP) techniques to extract ins
 
 ---
 
-## 📊 Methods & Technologies
+## Methods & Technologies
 
 | Task               | Tools & Libraries Used                     |
 |--------------------|--------------------------------------------|

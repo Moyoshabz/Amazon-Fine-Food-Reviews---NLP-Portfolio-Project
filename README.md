@@ -1,27 +1,40 @@
 # Amazon Fine Food Reviews
-Amazon Fine Food Reviews - NLP Portfolio Project
 
-
-**Objective**: Use Natural Language Processing (NLP) techniques to extract insights from customer reviews of food products sold on Amazon. 
-
-# Amazon Fine Food Reviews - NLP Portfolio Project
-
-**Objective**: Use Natural Language Processing (NLP) techniques to extract insights from customer reviews of food products sold on Amazon.  
-
-**Dataset**: [Amazon Fine Food Reviews - Kaggle](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)  
-
-**Tools**: Python, Pandas, NLTK/SpaCy, Matplotlib/Seaborn, WordCloud
+This project applies Natural Language Processing (NLP) techniques to extract insights from food product reviews posted on Amazon. It's built using Python, Pandas, NLTK/SpaCy, and Matplotlib, and is designed as a showcase portfolio project.
 
 ---
 
 ## Project Goals:
 
-### Clean and preprocess review text
+- Clean and preprocess real-world customer review data
+- Tokenize text data for further analysis
+- Perform exploratory data analysis (EDA)
+- Visualize word frequencies with WordCloud
+- Conduct sentiment analysis (coming soon!)
+- Apply machine learning models for sentiment classification (optional)
+- Share business insights and recommendations
 
-### Perform tokenization
+**Source**: [Amazon Fine Food Reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)  
+**Records**: 568,000+ customer reviews  
+**Key Features**:
+- `Score` (rating 1–5)
+- `Text` (the actual review)
+- Additional metadata (not all used)
 
-### Explore word usage and sentiment
+---
 
-### Build a sentiment classifier (Optional)
+## 📊 Methods & Technologies
 
-### Visualize insights for stakeholders
+| Task               | Tools & Libraries Used                     |
+|--------------------|--------------------------------------------|
+| Data Loading       | pandas                                     |
+| Text Preprocessing | nltk, spacy                                |
+| Visualization      | matplotlib, seaborn, wordcloud             |
+| Sentiment Analysis | textblob or vader (coming soon)            |
+| Classification     | scikit-learn (optional for future section) |
+
+---
+
+## 📸 Sample Visualization
+
+![WordCloud](images/wordcloud.png)

@@ -98,7 +98,7 @@ After the tokenization had been implemented, we visulized the most frequent word
 
 --- 
 
-## Step 3: Tokenization
+## Step 3: Sentiment Classification
 We classified each review as positive, negative, or neutral based on the review score using a simple rule-based approach.
 
 `df['sentiment'] = df['Score'].apply(lambda x: 'positive' if x > 3 else ('negative' if x < 3 else 'neutral'))`
